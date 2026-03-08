@@ -1,12 +1,16 @@
-# Voice AI Hospital Appointment Agent
+# Smart Hospital Appointment Assistant
 
 ## Overview
 
-This project implements a **Voice-based AI Agent** that allows patients to **book, cancel, and reschedule hospital appointments through natural voice conversations**.
+Smart Hospital Appointment Assistant is an AI-powered voice-based system that helps patients manage hospital appointments through natural conversation.
 
-The system integrates **speech recognition, AI reasoning, appointment tools, memory management, and reminder services** to automate clinical appointment workflows.
+The assistant allows users to **book, cancel, and reschedule appointments**, detect scheduling conflicts, and receive reminders before their scheduled visits.
 
-The architecture demonstrates a **modular real-time voice AI pipeline** designed for conversational healthcare applications.
+The system converts voice input into text using speech recognition, processes requests using an AI reasoning agent, and interacts with a scheduling system to manage appointments efficiently.
+
+The architecture integrates **speech recognition, AI reasoning, appointment tools, memory management, and reminder services** to automate hospital appointment workflows.
+
+This project demonstrates a **modular real-time voice AI pipeline** designed for conversational healthcare applications.
 
 ---
 
@@ -28,8 +32,6 @@ The architecture demonstrates a **modular real-time voice AI pipeline** designed
 
 ## System Architecture
 
-![Architecture](diagrams/architecture.png)
-
 The system processes voice requests through multiple stages:
 
 Voice Input
@@ -48,7 +50,9 @@ Text-to-Speech
 ↓
 Voice Response
 
-### Architecture Diagram
+---
+
+## Architecture Diagram
 
 ![Architecture](diagrams/architecture.png)
 
@@ -56,51 +60,47 @@ Voice Response
 
 ## Project Structure
 
-```id="qk0nyb"
-Voice-AI-Agent
+smart-hospital-appointment-assistant
 
 agent/
-    voice_agent.py
+  voice_agent.py
 
 backend/
-    server.py
+  server.py
 
 campaign/
-    reminder_campaign.py
+  reminder_campaign.py
 
 scheduler/
-    reminder_service.py
+  reminder_service.py
 
 database/
-    db.py
-    init_db.py
+  db.py
+  init_db.py
 
 memory/
-    conversation_memory.py
+  conversation_memory.py
 
 tools/
-    appointment_tools.py
+  appointment_tools.py
 
 voice/
-    microphone_input.py
-    speech_to_text.py
-    text_to_speech.py
-    test_voice_agent.py
+  microphone_input.py
+  speech_to_text.py
+  text_to_speech.py
+  test_voice_agent.py
 
 run_reminder.py
 requirements.txt
 README.md
-```
 
 ---
 
 ## Installation
 
-Install required dependencies:
+Install the required dependencies:
 
-```id="hkj9fa"
 pip install -r requirements.txt
-```
 
 ---
 
@@ -108,31 +108,23 @@ pip install -r requirements.txt
 
 Start the voice AI agent:
 
-```id="ymszz6"
 python voice/test_voice_agent.py
-```
 
 Example voice command:
 
-```id="d5mkk9"
 Book cardiologist tomorrow at 10 for Imran
-```
 
 ---
 
 ## Run API Server
 
-Start the backend API:
+Start the backend API server:
 
-```id="c5rbg1"
 uvicorn backend.server:app --reload
-```
 
-Open API documentation:
+Open the API documentation in your browser:
 
-```id="iha50r"
 http://127.0.0.1:8000/docs
-```
 
 ---
 
@@ -146,9 +138,7 @@ Automatically checks upcoming appointments and sends reminders.
 
 Run:
 
-```id="qey3fd"
 python run_reminder.py
-```
 
 The scheduler scans the database and notifies patients about upcoming appointments.
 
@@ -156,13 +146,24 @@ The scheduler scans the database and notifies patients about upcoming appointmen
 
 ### 2. Outbound Reminder Campaign
 
-Simulates outbound reminder calls to patients with appointments scheduled for the next day.
+Simulates outbound reminder calls to patients who have appointments scheduled for the next day.
 
 Run:
 
-```id="ib2ix9"
 python campaign/reminder_campaign.py
-```
+
+---
+
+## Example Voice Commands
+
+Book appointment:
+Book cardiologist tomorrow at 10 for Imran
+
+Cancel appointment:
+Cancel my appointment tomorrow
+
+Reschedule appointment:
+Reschedule my appointment to 3 PM
 
 ---
 
@@ -188,13 +189,11 @@ The system measures latency across different stages:
 
 Example output:
 
-```id="tqg32d"
 Latency Breakdown
 STT: 4.2 seconds
 Agent: 0.3 seconds
 TTS: 2.5 seconds
 Total: ~7 seconds
-```
 
 ---
 
