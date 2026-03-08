@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+langdetect
+pyttsx3
+openai-whisper
+pydantic
+sqlite-utils
