@@ -104,27 +104,44 @@ pip install -r requirements.txt
 
 ---
 
-## Run Voice Agent
+Run the System
+Run Backend API
 
-Start the voice AI agent:
+Start the FastAPI backend server:
 
-python voice/test_voice_agent.py
+python -m uvicorn backend.server:app --reload
 
-Example voice command:
-
-Book cardiologist tomorrow at 10 for Imran
-
----
-
-## Run API Server
-
-Start the backend API server:
-
-uvicorn backend.server:app --reload
-
-Open the API documentation in your browser:
+Open API docs:
 
 http://127.0.0.1:8000/docs
+
+Run Text AI Assistant
+
+Run the text-based appointment assistant:
+
+python -m agent.test_agent
+
+Example commands:
+
+book cardiologist tomorrow at 10 for Imran
+show appointments
+cancel appointment for Imran
+reschedule Imran 2026-03-10 12:00
+
+reset
+
+Run Voice AI Assistant
+
+Run the voice-based AI agent:
+
+python -m agent.voice_mode
+
+Example voice commands:
+
+Hello
+Book cardiologist tomorrow at 10 for Imran
+Show appointments
+Cancel appointment for Imran
 
 ---
 
